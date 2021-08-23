@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .class1{
+            background-color: yellowgreen;
+            color: white;
+            padding: 10px;
+            border: 5px solid green;
+            font-size: 25px;
+            margin: 50px auto;
+            width: 60%;
+        }
+    </style>
+</head>
+<body >
+   <button id="btn1">Add Class</button>
+   <button id="btn2">Remove Class</button>
+   <button id="btn3">Toggle Class</button>
+   <button id="btn4">Add CSS</button>
+    <script>
+        $(document).ready(function(){
+           $("#btn1").click(function(){
+
+            $("#content").addClass("class1");
+           });
+
+           $("#btn2").click(function(){
+
+            $("#content").removeClass("class1");
+           });
+
+           $("#btn3").click(function(){
+
+            $("#content").toggleClass("class1");
+           });
+
+           $("#btn4").click(function(){
+
+            $("#content").css({"font-family": "arial", "font-size": "20px", "color": "red", "padding": "20px", "border": "10px solid green"});
+           });
+           
+        });
+    </script>
+    <div id="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam pariatur molestias excepturi soluta suscipit accusantium qui dolore hic ex saepe ratione, mollitia, nostrum debitis nobis veritatis? Voluptatum voluptatem eos obcaecati omnis voluptates sed numquam aliquam molestias illo dolorum similique accusantium tenetur laudantium possimus cupiditate facere voluptas, maxime libero mollitia beatae!
+    </div>
+
+</body>
+</html>
