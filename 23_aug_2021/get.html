@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+    <button id="btn3">Show input Value</button>
+    <button id="btn4">Show Address Value</button>
+    <button id="btn5">Show Dropdown Value</button>
+    <button id="btn6">Show Radio Value</button>
+    <button id="btn7">Show Checkbox Value</button>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                var x = $("#para1").text();
+                alert(x);
+            });
+            $("#btn2").click(function(){
+                var x = $("#para1").html();
+                alert(x);
+            });
+            $("#btn3").click(function(){
+                var x = $("#fname").val("Islam");
+                alert(x);
+            });
+            $("#btn4").click(function(){
+                var x = $("#address").val();
+                alert(x);
+            });
+            $("#btn5").click(function(){
+                var x = $("#district").val();
+                alert(x);
+            });
+            $("#btn6").click(function(){
+                var x = $("#radio").val();
+                alert(x);
+            });
+            $("#btn7").click(function(){
+                var x = $("#check").val();
+                alert(x);
+            });
+
+
+
+        });
+    </script>
+    <p id="para1">Today is <b>Monday</b></p>
+    <input type="text" id="fname"><br><br>
+
+    <textarea name="" id="address" cols="30" rows="10"></textarea><br><br>
+
+    <select name="" id="district">
+        <option value="" selected disabled>--Select One--</option>
+        <option value="Dhaka">Dhaka</option>
+        <option value="Noakhali">Noakhali</option>
+        <option value="Khulna">Khulna</option>
+    </select><br><br>
+    <input type="radio" id="radio" name="sex" value="male">male
+    <input type="radio" id="radio" name="sex" value="female">female <br> <br>
+    <input type="checkbox" id="check" value="one">one
+    <input type="checkbox" id="check" value="Two">Two
+    <input type="checkbox" id="check" value="Three">Three
+    <input type="checkbox" id="check" value="Fore">Fore
+</body>
+</html>

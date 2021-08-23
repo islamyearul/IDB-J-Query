@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .feature{
+            background-color: red;
+            color: white;
+            font-size: 25px;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+      
+      $(document).ready(function(){
+         
+       
+        $("#p1").hover(function(){
+          $("#p1").addClass("feature");
+        });
+
+      });
+ 
+        
+    </script>
+  
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed incidunt repudiandae cupiditate atque blanditiis sequi, cum sapiente deserunt possimus, animi perspiciatis fugit eos fuga quia, ipsa sit quae aperiam officia!</p>
+</body>
+</html>
