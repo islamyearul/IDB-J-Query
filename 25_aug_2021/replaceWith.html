@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<title>Document</title>
+	<style>
+		body{
+			font-size: 40px;
+		}
+		div{
+			background-color: red;
+			color: white;
+			padding: 20px;
+			border-color: 5px solid green;
+			margin: 50px auto;
+
+
+		}
+		p{
+			background-color: green;
+			color: black;
+			padding: 20px;
+			border-color: 5px solid red;
+			margin: 50px auto;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="pre">Replace with</div>
+
+	<p id="cont">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, dolores. Enim eos, pariatur impedit blanditiis modi consequuntur ratione mollitia expedita non, dignissimos, nostrum doloremque optio fugit, iure exercitationem voluptatum quaerat.</p>
+
+
+
+	<script>
+		jQuery(document).ready(function($) {
+			// $("#cont").click(function(){
+			// 	var content = $("p").html();
+			// 	$("#show").html(content);
+			// });
+
+
+           $("#cont").click(function(){
+				var content = $(this).html();
+				$(this).remove();
+				$("#pre").replaceWith(content);
+
+			})
+			
+		});
+	</script>
+</body>
+</html>

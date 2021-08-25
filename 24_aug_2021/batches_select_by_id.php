@@ -44,7 +44,7 @@
     </script>
     <br><hr><br>
     <form action="" method="post">
-        <label for="">Batch ID</label>
+        <label for="">Student Name</label>
         <select name="" id="show">
             <option value="" disabled selected>--Select Students--</option>
         </select>

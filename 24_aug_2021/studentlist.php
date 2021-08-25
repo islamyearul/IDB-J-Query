@@ -3,7 +3,7 @@
 
 $db = new mysqli("localhost", "root", "", "db_scholarchip");
 
-$id = $_GET['bid'];
+$id = $_POST['bid'];
 
 $sql = "SELECT * FROM `students` WHERE  batch_id = '$id'";
 
@@ -11,8 +11,14 @@ $res = mysqli_query($db, $sql);
 
 echo "<option disabled selected>--Select Students--</option>";
 ?>
+
+<?php while($row = mysqli_fetch_assoc($res)){ ?>
    
-<br><br><br>
+   <option value="<?php echo $row['stname']; ?>"><?php echo $row['stname']; ?></option>
+
+<?php } ?>
+   
+<!-- <br><br><br> -->
 <!-- <table border="1">
     <thead>
         <tr>
@@ -34,8 +40,3 @@ echo "<option disabled selected>--Select Students--</option>";
     </tbody>
 </table> -->
 
-<?php while($row = mysqli_fetch_assoc($res)){ ?>
-   
-    <option value="<?php echo $row['stid']; ?>"><?php echo $row['stid']; ?></option>
-
-<?php } ?>
