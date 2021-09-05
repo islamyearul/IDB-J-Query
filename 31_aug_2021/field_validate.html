@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	 <style>
+		 body{
+			 font-size: 30px;
+		 }
+		 .error{
+			 color: red;
+		 }
+		 .success{
+			 color: green;
+
+		 }
+	 </style>
+
+	<title>Document</title>
+</head>
+<body>
+<form id="basic-form" action="" method="post">
+	<table >
+		<tr>
+			<td>Name</td>
+			<td><input type="text" id="name"></td>
+		</tr>
+		<tr>
+			<td>User Name</td>
+			<td><input type="text" id="uname"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="text" id="email"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="text" id="password"></td>
+		</tr>
+		<tr>
+			<td>Confirm Password</td>
+			<td><input type="text" id="cpassword"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" id="check" value="check" disabled="disabled"></td>
+		</tr>
+	</table>
+</form>
+
+<script>
+$(document).ready(function () {
+
+	//var namevalidate = false;
+	$("#name").keypress(function(){
+		var u = $(this);
+		if ( (u.val().length) < 10 || (u.val().length) > 20 ){
+			var namevalidate = false;
+			u.next('span').remove();
+			u.after('<span class="error">  Name must be between 10 to 20 charecter</span>')
+		} else{	
+			u.next('span').remove();
+			u.after('<span class="success">  Perfect </span>');
+			namevalidate = true;
+		}
+	});
+
+	//var usernamevalidate = false;
+	$("#uname").keypress(function(){
+		var usernamevalidate = false;
+		var un = $(this);
+		if( (un.val().length) <5 || (un.val().length) >20 ){
+			un.next('span').remove();
+		    un.after('<span class="error">  User name must be between 5 to 20 charecter</span>');
+		}else{
+			usernamevalidate = true;
+			un.next('span').remove();
+		    un.after('<span class="success">  Perfect </span>');
+		}
+
+	});
+
+	//var emailvalidate = false;
+	$("#email").keypress(function(){
+		var em = $(this);
+		var email = $("#email").val();
+		var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i;
+		if(!pattern.test(email)){
+			var emailvalidate = false;
+			em.next('span').remove();
+		    em.after('<span class="error">  Email Invalid</span>');
+		} else{
+			emailvalidate = true;
+			em.next('span').remove();
+		    em.after('<span class="success">  Email Valid </span>');
+		}
+	});
+
+	//var passvalidation = false;
+	$("#password").keypress(function(){
+		var pas = $(this);
+		var pass = $("#password").val();
+		var passPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/i;
+		if(!passPattern.test(pass)){
+			var passvalidation = false;
+			pas.next('span').remove();
+		    pas.after('<span class="error">  Passwords are 8-16 characters with uppercase letters, lowercase letters and at least one number.</span>');	
+		}else{
+			passvalidation = true;
+			pas.next('span').remove();
+		    pas.after('<span class="success"> Password Strong </span>');
+		}
+	});
+
+	//var cpassvalidation = false;
+	$("#cpassword").keypress(function(){
+		var cpas = $(this);
+		var pass = $("#password").val();
+		var cpass = $("#cpassword").val();
+		if ( pass != cpass) {
+			var cpassvalidation = false;
+			cpas.next('span').remove();
+		    cpas.after('<span class="error">  Password Doesn\'t Match</span>');	
+		} else{
+			cpassvalidation = true;
+			cpas.next('span').remove();
+		    cpas.after('<span class="success"> Password Match</span>');
+		}
+
+	});
+
+
+	if(namevalidate == false && usernamevalidate == false && emailvalidate == false && passvalidation == false && cpassvalidation == false){
+
+		$("#check").prop("disabled",true);
+		//$( "#check" ).attr( "disabled", "disable" );
+		// $("input[type=submit]").attr("disabled" , true);
+		//$( "#check" ).prop( "disabled", true );
+		return false;
+	 } 
+	else{
+		$("#check").prop("disabled",false);
+		//$("#check").removeAttr("disabled");
+		//$( "#check" ).prop( "disabled", false );
+		return true;
+	}
+
+
+});
+</script>
+</body>
+</html>

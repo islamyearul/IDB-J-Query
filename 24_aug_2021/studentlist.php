@@ -1,9 +1,7 @@
 <?php
-
-
 $db = new mysqli("localhost", "root", "", "db_scholarchip");
 
-$id = $_POST['bid'];
+$id = $_GET['bid'];
 
 $sql = "SELECT * FROM `students` WHERE  batch_id = '$id'";
 

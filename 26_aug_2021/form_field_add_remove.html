@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	 <style>
+	 	fieldset{
+	 		width: 750px;
+	 	}
+	 	ul{
+	 		list-style-type: none;
+	 	}
+	 </style>
+</head>
+<body>
+<!-- 	<input type="text" id="inp">
+	<button id="add">Add Item</button><br><br>
+	<button id="rmv"></button> -->
+<form action="">
+	<fieldset>
+		<legend>Add Or Remove Field</legend>
+		<ul id="sites" class='element'>
+			<li><label for="">Name</label>&nbsp;<input type="text"></li><br>
+		</ul>
+		<input type="button" id="add" value="Add More">
+
+	</fieldset>
+</form>
+
+
+	<script>
+		jQuery(document).ready(function($) {
+			$("#add").click(function(){
+				var li = "<li>";
+				li += '<label for="">Name</label>&nbsp;<input type="text"> &nbsp;&nbsp;';
+				li += '<input type="button" class="remove"  value="Remove">';
+				li += "</li>";
+			$("#sites").append(li + "<br>");
+			});
+
+			$("#sites").on('click', '.remove',function(){
+				$(this).parent('li').remove();
+				
+			})
+
+			// $("ol").on('click','.remove',function(){
+   //           $(this).parents('li').remove();
+   //        });
+ //    $('.remove').on('click','.remove',function(){
+ 
+ //    		 	$(this).parent('li').remove();
+
+ // }); 
+ $(".remove").click(
+		function() {
+			$(this).parent().remove()// Links with the class "close" will close parent
+				
+
+					return false;
+			}
+		);
+
+		});
+	</script>
+</body>
+</html>

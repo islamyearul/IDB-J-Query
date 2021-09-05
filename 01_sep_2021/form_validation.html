@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	 <style>
+		 body{
+			 font-size: 30px;
+		 }
+		 .error{
+			 color: red;
+		 }
+		 .success{
+			 color: green;
+
+		 }
+	 </style>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>contact Details - both fields are mandatory</legend>
+			<table>
+				<tr>
+					<td>
+						Email
+					</td>
+					<td><input type="eamil" id="email"  class="email">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Web
+					</td>
+					<td>
+						<input type="text" id="web" class="web">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" value="check" id="check" >
+					</td>
+				</tr>
+			</table>
+
+			
+		
+		</fieldset>
+	</form>
+	<script>
+		$(document).ready(function() {
+			$("#check").click(validate);
+
+			function validate(){
+				var datavalidation = true;
+				$(".email").each(function(){
+					var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i;
+					var cur = $(this);	
+					cur.next().remove();			
+					if (!pattern.test(cur.val())) {
+						cur.after('<span class="error"> Email Invalid</span>');
+						datavalidation = false;
+					}
+				}); 
+				if (!datavalidation) return false;
+
+				$(".web").each(function(){
+
+					var webpattern = /^(http(s?))\:\/\/www.([a-z0-9]+)\.([a-z]{2,4})$/;
+
+					var curr = $(this);
+					curr.next('span').remove();
+					
+					if (!webpattern.test(curr.val())) {
+						curr.after('<span class="error"> Web Invalid</span>');
+						datavalidation = false;
+					}
+				}); 
+			}
+		});
+	</script>
+</body>
+</html>
