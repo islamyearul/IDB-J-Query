@@ -20,7 +20,7 @@
 	<title>Document</title>
 </head>
 <body>
-<form id="basic-form" action="" method="post">
+<form id="basic-form" action="" method="get">
 	<table >
 		<tr>
 			<td>Name</td>
@@ -43,7 +43,7 @@
 			<td><input type="text" id="cpassword"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" id="check" value="check" disabled="disabled"></td>
+			<td colspan="2"><input type="submit" id="check" value="check" ></td>
 		</tr>
 	</table>
 </form>
@@ -51,7 +51,7 @@
 <script>
 $(document).ready(function () {
 
-	//var namevalidate = false;
+	var namevalidate = false;
 	$("#name").keypress(function(){
 		var u = $(this);
 		if ( (u.val().length) < 10 || (u.val().length) > 20 ){
@@ -65,7 +65,7 @@ $(document).ready(function () {
 		}
 	});
 
-	//var usernamevalidate = false;
+	var usernamevalidate = false;
 	$("#uname").keypress(function(){
 		var usernamevalidate = false;
 		var un = $(this);
@@ -80,7 +80,7 @@ $(document).ready(function () {
 
 	});
 
-	//var emailvalidate = false;
+	var emailvalidate = false;
 	$("#email").keypress(function(){
 		var em = $(this);
 		var email = $("#email").val();
@@ -96,7 +96,7 @@ $(document).ready(function () {
 		}
 	});
 
-	//var passvalidation = false;
+	var passvalidation = false;
 	$("#password").keypress(function(){
 		var pas = $(this);
 		var pass = $("#password").val();
@@ -112,7 +112,7 @@ $(document).ready(function () {
 		}
 	});
 
-	//var cpassvalidation = false;
+	var cpassvalidation = false;
 	$("#cpassword").keypress(function(){
 		var cpas = $(this);
 		var pass = $("#password").val();
@@ -129,21 +129,23 @@ $(document).ready(function () {
 
 	});
 
+   if( namevalidate && usernamevalidate && emailvalidate && passvalidation && cpassvalidation){
+	   return true;
+   }
+	// if(namevalidate == false && usernamevalidate == false && emailvalidate == false && passvalidation == false && cpassvalidation == false){
 
-	if(namevalidate == false && usernamevalidate == false && emailvalidate == false && passvalidation == false && cpassvalidation == false){
-
-		$("#check").prop("disabled",true);
-		//$( "#check" ).attr( "disabled", "disable" );
-		// $("input[type=submit]").attr("disabled" , true);
-		//$( "#check" ).prop( "disabled", true );
-		return false;
-	 } 
-	else{
-		$("#check").prop("disabled",false);
-		//$("#check").removeAttr("disabled");
-		//$( "#check" ).prop( "disabled", false );
-		return true;
-	}
+	// 	$("#check").prop("disabled",true);
+	// 	//$( "#check" ).attr( "disabled", "disable" );
+	// 	// $("input[type=submit]").attr("disabled" , true);
+	// 	//$( "#check" ).prop( "disabled", true );
+	// 	return false;
+	//  } 
+	// else{
+	// 	$("#check").prop("disabled",false);
+	// 	//$("#check").removeAttr("disabled");
+	// 	//$( "#check" ).prop( "disabled", false );
+	// 	return true;
+	// }
 
 
 });
